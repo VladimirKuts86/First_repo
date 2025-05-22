@@ -1,8 +1,10 @@
 first_number = int(input("Введите первое число "))
 second_number = int(input("Введите второе число "))
+if first_number == second_number:
+    print("Числа равны")
 if first_number > second_number:
     print("Первое число больше")
-else:
+if first_number < second_number:
     print("Второе число больше")
 
 # Задача 2
@@ -50,8 +52,7 @@ if operations == "/":
 year = float(input("Введите год: "))
 if year % 400 == 0:
     print("Год високосный")
-elif year % 4 == 0 and year % 100 == >0<:
+elif year % 4 == 0 and year % 100 == 0:
     print("Год високосный")
 else:
     print("Год не високосный")
-
