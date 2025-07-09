@@ -12,9 +12,12 @@
 # # Обновленный конфиг: {'host': 'localhost', 'port': 9000, 'debug': True, 'user': 'admin'}
 
 def update_config(config, **kwargs):
-    config = {}
-    base_config = {"host": "localhost", "port": 8080, "debug": False}
-    new_config = update_config(base_config, port=9000, debug=True, user="admin")
-    print(f"Исходный конфиг: {base_config}")
-    print(f"Обновленный конфиг: {new_config}")
-update_config(port= 9000, debug=True, user="admin")
+    new_config = config.copy()
+    new_config.update(kwargs)
+    return new_config
+
+base_config = {"host": "localhost", "port": 8080, "debug": False}
+new_config = update_config(base_config, port=9000, debug=True, user="admin")
+
+print(f"Исходный конфиг: {base_config}")
+print(f"Обновленный конфиг: {new_config}")
