@@ -36,7 +36,7 @@ import datetime
 # date_from_string = datetime.datetime.strptime("21 November, 2024", "%d %B, %Y")
 # print(date_from_string)
 
-pip install pytz
+import pytz
 
 timezone_moscow = pytz.timezone("Europe/Moscow")
 moscow_time = datetime.datetime.now(timezone_moscow)
