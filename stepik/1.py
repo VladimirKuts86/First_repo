@@ -18,4 +18,23 @@
 
 
 
-print(ord('⇄'))
+numb = int(input())
+counter = 0
+
+if numb / 25 >= 1:
+        x = int(numb / 25)
+        counter += x
+        numb -= x * 25
+if numb / 10 >= 1:
+        x = int(numb / 10)
+        counter += x
+        numb -= x * 10
+if numb / 5 >= 1:
+        x = int(numb / 5)
+        counter += x
+        numb -= x * 5
+if numb / 1 >= 1:
+        x = int(numb / 1)
+        counter += x
+        numb -= x * 1
+print(counter)
