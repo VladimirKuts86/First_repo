@@ -17,24 +17,17 @@
 #     print("NO")
 
 
+n = int(input())
+largest = n % 10
+lowest = n % 10
+while n > 0:
+    last_num = n % 10
+    if last_num > largest:
+        largest = last_num
+    if last_num < lowest:
+        lowest = last_num
+    n = n //10
 
-numb = int(input())
-counter = 0
 
-if numb / 25 >= 1:
-        x = int(numb / 25)
-        counter += x
-        numb -= x * 25
-if numb / 10 >= 1:
-        x = int(numb / 10)
-        counter += x
-        numb -= x * 10
-if numb / 5 >= 1:
-        x = int(numb / 5)
-        counter += x
-        numb -= x * 5
-if numb / 1 >= 1:
-        x = int(numb / 1)
-        counter += x
-        numb -= x * 1
-print(counter)
+print(f'Максимальная цифра равна {largest}')
+print(f'Минимальная цифра равна {lowest}')

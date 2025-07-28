@@ -47,25 +47,51 @@ def fighting_game(players_list):
     players_turn = choice([True, False])
     print(players_turn)
     block_choice = choice(['Блок', 'Контрудар', ''])
-    if players_turn:
-        print(f'Введите цифру соответствующую команде для бойца: 1. Удар рукой - "ур"\n'
-              f'\t\t\t\t\t\t 2. Удар ногой - "ун"\n'
-              f'\t\t\t\t\t\t 3. Удар ногой в прыжке - "унп"\n')
-        x = input('Место для ввода команды: ')
-        if x == '1' or x == '2':
-            if x == '1':
+    while labubu.health > 0 or chebu.health > 0:
+        if labubu.health <= 0 or chebu.health <= 0:
+            print('Бой окончен')
+            print(labubu.health)
+            print(chebu.health)
+            break
+        elif players_turn:
+            print(f'Введите цифру соответствующую команде для бойца: 1. Удар рукой\n'
+                  f'\t\t\t\t\t\t 2. Удар ногой\n'
+                  f'\t\t\t\t\t\t 3. Удар ногой в прыжке\n')
+            x = input('Место для ввода команды: ')
+            if x == '1' or x == '2':
+                if x == '1':
+                    if players_choice == 'Чебурашка':
+                        chebu.punch_method(labubu)
+                    else:
+                        labubu.punch_method(chebu)
+                elif x == '2':
+                    if players_choice == 'Чебурашка':
+                        chebu.kick_method(labubu)
+                    else:
+                        labubu.kick_method(chebu)
+            else:
+                 print(f'Вы ввели неправильную команду, ваш боец пропускает ход!\n')
+            players_turn = False
+            print(f'После вашего удара: {labubu.health}')
+            print(f'После вашего удара: {chebu.health}\n')
+        elif not players_turn:
+            npc_choice = choice(['Удар ногой', 'Удар рукой'])
+            if npc_choice == 'Удар ногой':
                 if players_choice == 'Чебурашка':
-                    chebu.punch_method(labubu)
-                else:
-                    labubu.punch_method(chebu)
-            elif x == '2':
-                if players_choice == 'Чебурашка':
-                    chebu.kick_method(labubu)
-                else:
                     labubu.kick_method(chebu)
-        else:
-            print(f'Вы ввели неправильную команду, ваш боец пропускает ход!')
-        players_turn = False
+                else:
+                    chebu.kick_method(labubu)
+            if npc_choice == 'Удар рукой':
+                if players_choice == 'Чебурашка':
+                    labubu.punch_method(chebu)
+                else:
+                    chebu.punch_method(labubu)
+            players_turn = True
+        elif labubu.health > 0 and chebu.health > 0:  
+            print(f'После удара противника: {labubu.health}')
+            print(f'После удара противника: {chebu.health}\n')
+
+
 
 
 
